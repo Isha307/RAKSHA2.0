@@ -3,7 +3,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 from flask import Flask, render_template, Response, jsonify, request, Blueprint
 from camera import VideoCamera
-from import get_score
+from score import get_score
 
 process = Blueprint('process', __name__)
 
@@ -54,7 +54,7 @@ def index():
 
 @process.route('/modules')
 def elements():
-    return render_template('modules/module0.html')
+    return render_template('modules/modules.html')
 
 @process.route('/quiz')
 def quiz():
