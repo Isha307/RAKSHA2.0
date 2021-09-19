@@ -26,27 +26,6 @@ body {
 img{
   border-radius:30px;
 }
-.call_to-btn {
-  display: inline-block;
-  padding: 15px 45px;
-  font-size: 15px;
-  background-color: #ffffff;
-  color: #262627;
-  font-weight: 600;
-  transition: all 0.3s ease 0s;
-}
-
-.hero_section .call_to-btn {}
-
-.call_to-btn img {
-  width: 18px;
-  margin-left: 10px;
-}
-
-.btn_on-hover {
-  transition: all 0.3s ease 0s;
-}
-
 .call_to-btn:hover,
 .btn_on-hover:hover {
   -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.7);
