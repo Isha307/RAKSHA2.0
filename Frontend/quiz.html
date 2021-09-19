@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 <style>
   * {
     margin: 0;
@@ -418,12 +420,16 @@
   }
 </style>
 
-</style>
+
 
 <head>
   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->

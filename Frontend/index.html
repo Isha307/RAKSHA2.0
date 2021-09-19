@@ -18,6 +18,7 @@
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <!-- progress barstle -->
   <link rel="stylesheet" href="css/css-circular-prog-bar.css">
   <!-- fonts style -->
@@ -98,7 +99,7 @@
   <div class="common_style">
 
     <!-- about section -->
-    <section class="about_section">
+    <section class="about_section" data-aos="fade-left" data-aos-duration="4000">
       
       <div class="container">
         <div class="row">
@@ -109,7 +110,7 @@
           </div>
           <div class="col-md-6">
             <div class="about_detail-box">
-              <h3>
+              <h3 class="fw-bold">
                 About Raksha
               </h3>
               <p>
@@ -137,7 +138,7 @@
     <!-- end about section -->
 
     <!-- admission section -->
-    <section class="admission_section">
+    <section class="admission_section" data-aos="fade-up" data-aos-duration="4000">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -191,11 +192,11 @@
     <!-- end admission section -->
 
     <!-- why section -->
-    <section class="why_section">
+    <section class="why_section"  data-aos="zoom-in" data-aos-duration="4000">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <div class="testimonials-shape testimonials-shape-1">
+            <div class="testimonials-shape testimonials-shape-1" >
               <svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                       <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="testimonials-shape-1">
@@ -228,7 +229,7 @@
                 of workplace are affected.<br />
               </p>
               <div class="">
-                <a href="/module1.html" class="call_to-btn btn_white-border">
+                <a href="./module1.html" class="btn-style">
                   Let's go
                 </a>
               </div>
@@ -353,7 +354,10 @@
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
  
 </body>
 
