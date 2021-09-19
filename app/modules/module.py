@@ -26,10 +26,14 @@ def one():
 def two():
     
     #get flag from firebase -> user.flag
+    if flag==1:
+        return render_template("modules/error.html")
     return render_template(f"modules/module{flag}.html")
 
 # Set the route and accepted methods
 @modules.route('/three', methods=['GET', 'POST'])
 def three():
     
+    if flag!=3:
+        return render_template("modules/error.html")
     return render_template(f"modules/module{flag}.html")
