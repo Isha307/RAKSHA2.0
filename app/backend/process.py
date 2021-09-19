@@ -1,16 +1,16 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-from flask import Flask, render_template, Response, jsonify, request, Blueprint
+from flask import Flask, render_template, Response, jsonify, request, Blueprint, session
 from camera import VideoCamera
-from import get_score
+from score import get_score
 
 process = Blueprint('process', __name__)
 
 video_camera = None
 global_frame = None
 
-category = 'Hammer Strike' # try getting this from session
+category = session["category"]
 
 
 @process.route('/record_status', methods=['POST'])
@@ -54,7 +54,7 @@ def index():
 
 @process.route('/modules')
 def elements():
-    return render_template('modules/module0.html')
+    return render_template('modules/modules.html')
 
 @process.route('/quiz')
 def quiz():

@@ -3,7 +3,9 @@
 # resume from prev session, purane variables fetch krke
 # flag variable - that will store where user last left
 
-flag = "fetch from module"
+from flask import session
+
+flag = session["flag"]
 
 
 # Import flask dependencies
@@ -11,7 +13,7 @@ from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
-modules = Blueprint('auth', __name__ ,url_prefix='/module')
+modules = Blueprint('auth', __name__ )
 
 # Set the route and accepted methods
 @modules.route('/one', methods=['GET', 'POST'])
