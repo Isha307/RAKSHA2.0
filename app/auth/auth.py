@@ -55,3 +55,8 @@ def dashboard(user):
 	name = user.identifier
 	#pass in relevant info to load custom dashboard
 	return render_template('user/dashboard.html', name=name)
+
+
+no_of_modules, total_score, username, list_struct = []
+list_struct = [["module1", "34%", "80%"], 
+               ["module_no", "score", "completition"]]
