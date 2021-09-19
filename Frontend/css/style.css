@@ -26,7 +26,6 @@ body {
 img{
   border-radius:30px;
 }
-<<<<<<< HEAD
 li{
   font-size:25px;
   line-height:30px;
@@ -45,19 +44,10 @@ li{
   padding: 15px 45px;
   font-size: 15px;
   background-color:#fdd31d ;
-=======
-.btn-style{
-  display: inline-block;
-  padding: 15px 45px;
-  border-radius: 10px;
-  font-size: 15px;
-  background-color: #ffffff;
->>>>>>> 20aff833716db10080f34e8e79b1a9b2f0d9063d
   color: #262627;
   font-weight: 600;
   transition: all 0.3s ease 0s;
 }
-<<<<<<< HEAD
 .title{
   line-height:50px;
   font-size:50px;
@@ -66,13 +56,6 @@ li{
 .call_to-btn {
   display: inline-block;
   padding: 15px 45px;
-=======
-
-.call_to-btn {
-  display: inline-block;
-  padding: 15px 45px;
-  border-radius: 10px;
->>>>>>> 20aff833716db10080f34e8e79b1a9b2f0d9063d
   font-size: 15px;
   background-color: #ffffff;
   color: #262627;
