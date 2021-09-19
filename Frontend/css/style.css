@@ -26,33 +26,6 @@ body {
 img{
   border-radius:30px;
 }
-li{
-  font-size:25px;
-  line-height:30px;
-}
-.fw-bold{
-  font-weight:700;
-  font-size:40px;
-}
-.fw-bold-text{
-  font-size:28px;
-  font-weight:700;
-  color:#fdd31d;
-}
-.btn-style{
-  display: inline-block;
-  padding: 15px 45px;
-  font-size: 15px;
-  background-color:#fdd31d ;
-  color: #262627;
-  font-weight: 600;
-  transition: all 0.3s ease 0s;
-}
-.title{
-  line-height:50px;
-  font-size:50px;
-  font-weight:700;
-}
 .call_to-btn {
   display: inline-block;
   padding: 15px 45px;
