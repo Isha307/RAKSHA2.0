@@ -5,7 +5,7 @@
 
 from flask import session
 
-flag = session["flag"]
+flag = 1
 
 
 # Import flask dependencies

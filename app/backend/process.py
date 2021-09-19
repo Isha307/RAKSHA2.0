@@ -10,7 +10,7 @@ process = Blueprint('process', __name__)
 video_camera = None
 global_frame = None
 
-category = session["category"]
+category = "Hammer Strike"
 
 
 @process.route('/record_status', methods=['POST'])
@@ -70,8 +70,8 @@ def pose():
     global category
     """Video streaming"""
     category = request.form.get('detect')
-    return render_template('pose.html')
+    return render_template('pose.html', score="start rec, perform the move, stop rec and then calculate score")
 
 @process.route('/update', methods=['GET', 'POST'])
 def update_score():
-    return render_template('score.html', score=get_score(category))
+    return render_template('pose.html', score=get_score(category))
