@@ -10,7 +10,7 @@ import random
 MAX_SEQ_LENGTH = 100
 NUM_FEATURES = 2048
 IMG_SIZE = 224
-model = tf.saved_model.load('../model/')
+model = tf.saved_model.load('app/model')
 
 def crop_center_square(frame):
     y, x = frame.shape[0:2]
