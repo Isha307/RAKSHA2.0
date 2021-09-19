@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+=======
+>>>>>>> 20aff833716db10080f34e8e79b1a9b2f0d9063d
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+
+  }
+
+  body {
+    font-family: "Montserrat", serif;
+    background-color: #eeeeee;
+  }
+
+  body {
+    font-family: "Montserrat", serif;
+    background-color: #eeeeee;
+  }
+
+  body {
+    background-color: #ffffff;
+    font-family: 'Roboto Slab';
+    color: #fff;
+  }
+
+  .wrapper {
+    height: 350px;
+    width: 700px;
+    margin: 40px auto;
+  }
+
+  .quiz-box {
+    height: 100%;
+    border: 3px solid rgba(255, 255, 255, 1);
+    background-color: #000;
+    border-radius: 0px 10%;
+    box-shadow: 0px 0px 13px 2px rgb(0, 0, 0);
+  }
+
+  .navigation-buttons {
+    text-align: center;
+    padding: 10px 0px;
+    float: right;
+  }
+
+  .name-box {
+    text-align: center;
+    padding: 10%;
+    height: 100%;
+  }
+
+  .name-box span {
+    font-weight: 500;
+    font-size: 3em;
+  }
+
+  #name-input-box {
+    height: 45px;
+    padding: 0;
+    margin-top: 20px;
+    font: 400 3rem 'Roboto Slab';
+    letter-spacing: 0.025em;
+    border: none;
+    background: transparent;
+    text-align: center;
+    outline: none;
+    border-bottom: solid thin rgba(238, 238, 238, 0.12);
+  }
+
+  button {
+    border: none;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    border-radius: 0px 10px;
+    background-color: white;
+    background: transparent;
+    outline: none;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid #fff;
+    border-radius: 0px 10px;
+  }
+
+  button:disabled {
+    display: none;
+    background-color: white;
+  }
+
+  #name-submit-button {
+    margin-top: 30px;
+  }
+
+  .quiz {
+    height: 100%;
+    padding: 10px;
+  }
+
+  #question h2 {
+    font-weight: 600;
+    padding: 20px;
+  }
+
+  .options {
+    height: 70%;
+    height: 100%;
+    padding-left: 20px;
+  }
+
+  .options label {
+    width: 49%;
+  }
+
+
+  /* Radio Button*/
+
+  @-webkit-keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+      outline: none;
+    }
+
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+      outline: none;
+    }
+  }
+
+  @-moz-keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+      outline: none;
+    }
+
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+      outline: none;
+    }
+  }
+
+  @keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+      outline: none;
+    }
+
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+      outline: none;
+    }
+  }
+
+  .option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    top: 13px;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .option-input:hover {
+    background: #9faab7;
+    outline: none;
+  }
+
+  .option-input:checked {
+    background: black;
+  }
+
+  .option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: '\2713';
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: white;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+
+  .option-input.radio {
+    border-radius: 50%;
+    outline: none !important;
+    margin-right: 10px;
+    border: 2px solid #fff;
+  }
+
+  .option-input.radio::after {
+    border-radius: 50%;
+    outline: none;
+  }
+
+  label {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 1.3em;
+  }
+
+  /*Pie chart style starts*/
+
+
+  .score-detail,
+  .chart {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+
+  .easyPieChart {
+    position: relative;
+    text-align: center;
+  }
+
+  .easyPieChart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .percentage,
+  .label {
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-weight: 100;
+  }
+
+  .percentage {
+    font-size: 17px;
+  }
+
+  sup {
+    top: -0.2em;
+    margin-left: 1px;
+  }
+
+  .ctrl {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: #c4cdcc;
+    word-spacing: 5px;
+  }
+
+  /*Pie chart style ends*/
+
+  #result {
+    padding: 10px;
+    height: 100%;
+  }
+
+  #result .score-label h1 {
+    font-weight: 600;
+  }
+
+  #result .score-label h1 i {
+    margin-left: 10px;
+  }
+
+  #result .score-label h1,
+  #result .message {
+    text-align: center;
+  }
+
+  #result .score-detail h3 {
+    margin-top: 19px;
+    padding-left: 15px;
+  }
+
+  #result-stats {
+    padding: 20px;
+  }
+
+  table,
+  td,
+  th {
+    padding: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table td .grey {
+    color: rgba(255, 255, 255, 0.47);
+  }
+
+  th {
+    text-align: left;
+    font-size: 1.2em;
+  }
+
+  #result-stats .fa {
+    margin-right: 5px;
+  }
+
+
+  #result-stats .fa-times-circle {
+    color: #ff3d00;
+  }
+
+  .alignm {
+    text-align: left;
+    padding-left: 200px;
+    padding-top: 30px;
+    box-shadow: 12px 6px 14px 17px #e0e0e0;
+    color: #000;
+  }
+
+  #submit_btn {
+    width: 150px;
+    height: 60px;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #e7e07d;
+ 
+
+  }
+
+  #results {
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #c4cdcc;
+    opacity: 0.7;
+    border: black;
+
+
+  }
+
+  .box {
+    background: #ffffff;
+    box-shadow: 10 8px 32px 0 rgba(243, 244, 255, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-left: 400px;
+    margin-right: 200px;
+  }
+
+  #gradepercentage {
+
+    margin-top: 20px;
+    padding: 20px;
+
+  }
+</style>
+
+<<<<<<< HEAD
+
+=======
+</style>
+>>>>>>> 20aff833716db10080f34e8e79b1a9b2f0d9063d
+
+<head>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+<<<<<<< HEAD
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+=======
+>>>>>>> 20aff833716db10080f34e8e79b1a9b2f0d9063d
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase.js"></script>
+</head>
+
+<body>
+
+  <!--<input type="submit" id="results" onclick="k()"></input>!-->
+  <center>
+
+    <div class="game-quiz-container" style="color: #000;">
+      <h2 style="font-size: 30px;"> QUIZ -1 </h2>
+      <br>
+      <p style="font-size: 30px;">Enter your name:
+        <input id=name name="name" type="text" size="30" style="padding: 20px ;">
+        <br><br>
+      </p>
+
+      <div class="box">
+        <div class="game-question-container">
+          <h1 id="display-question"></h1>
+        </div>
+        <div class="alignm" style="font-size: 20px;">
+          Q1.About what percentage of violent crimes is accounted for by robbery??<br>
+          <p><input type="radio" name="question1" id="correct1">29% <br></p>
+          <p><input type="radio" name="question1">88% <br></p>
+          <p><input type="radio" name="question1">20%<br></p>
+          <p><input type="radio" name="question1">10% <br></p><br>
+
+          Q2.Which of the following is a vulnerable target when having to fight off an attacker?<br>
+          <p><input type="radio" name="question2">Eyes <br></p>
+          <p><input type="radio" name="question2">Throat<br></p>
+          <p><input type="radio" name="question2">Groin <br></p>
+          <p><input type="radio" name="question2" id="correct2">All of the above <br></p><br>
+
+          Q3.How many counters should you learn against each type of technique?<br>
+          <p><input type="radio" name="question3">3-4 <br></p>
+          <p><input type="radio" name="question3" id="correct3">1-2 <br></p>
+          <p><input type="radio" name="question3">10 or more <br></p>
+          <p><input type="radio" name="question3">I don't know <br></p><br>
+
+          Q4. The most dangerous types of knifes are...<br>
+          <p><input type="radio" name="question4" id="correct4">.. are not shown until used. <br></p>
+          <p><input type="radio" name="question4">... shown and used as threats first. <br></p>
+          <p><input type="radio" name="question4">... easily visible before the fight begins <br></p>
+          <p><input type="radio" name="question4">I don't know. <br></p>
+          <br>
+          Q5. When practicing sparring against multiple opponents how many should someone progress to practicing
+          against?<br>
+          <p><input type="radio" name="question5">2 <br></p>
+          <p><input type="radio" name="question5">2-3 <br></p>
+          <p><input type="radio" name="question5">1<br></p>
+          <p><input type="radio" name="question5" id="correct5">4 or more<br></p><br>
+
+          Q6.Which of the following self-defense tools is all you need to protect yourself?<br>
+          <p><input type="radio" name="question6">Mace/Pepper Spray <br></p>
+          <p><input type="radio" name="question6">Whistle <br></p>
+          <p><input type="radio" name="question6">Keys<br></p>
+          <p><input type="radio" name="question6" id="correct6">None of the Above <br></p><br>
+
+          Q7.Is sparring practice enough to help you in a fight?<br>&nbsp;&nbsp;
+          <p><input type="radio" name="question7">Yes <br></p>
+          <p><input type="radio" name="question7">No <br></p>
+          <p><input type="radio" name="question7" id="correct7">It's depend <br></p>
+          <p><input type="radio" name="question7">I don't know <br></p><br>
+
+          Q8. Which of the following makes a useful improvised weapon?<br>
+          <p><input type="radio" name="question8">Unbreakable Umbrella <br></p>
+          <p><input type="radio" name="question8">Pocket Change <br></p>
+          </p>
+          <p><input type="radio" name="question8">Backpack <br></p>
+          <p><input type="radio" name="question8" id="correct8">All of the Above <br></p><br>
+
+          Q9. hould you not walk around with your hands in your pocket?<br>
+          <p><input type="radio" name="question9">Yes <br></p>
+          <p><input type="radio" name="question9">No <br></p>
+          <p><input type="radio" name="question9" id="correct9">It depends on your surroundings.<br></p>
+          <p><input type="radio" name="question9">I don't know. <br></p>
+          <br>
+          Q10. Making eye contact with an attack can make things worse.?<br>
+          <p><input type="radio" name="question10" id="correct10">Yes <br></p>
+          <p><input type="radio" name="question10">No <br></p>
+          <p><input type="radio" name="question10">It doesn't matter <br></p>
+          <p><input type="radio" name="question10">I don't know. <br></p><br>
+          <p style="font-size:30px;display:inline-block" id="scoretext"> Your Score: </p>
+          <input id="gradepercentage" name="score" type="number"> </input> <br> <br>
+          <input type="submit" id="submit_btn" onclick="result()"></input>
+          <button onclick="quiz2()"></button> <br> <br>
+        </div>
+  </center>
+  <button hidden id="results" onclick="k()">
+    <table id="table">
+
+      <td id="leaderBoard"></td>
+
+    </table>
+  </button>
+
+  <script src="./output.js"></script>
+
+  <script type="text/javascript">
+
+    function k() {
+      window.location.replace("k.html");
+    }
+    function quiz2() {
+      window.location.replace("quiz2.html");
+    }
+    function result() {
+
+      var score = 0;
+      //score = document.getElementById("grade-percentage").value;
+      if (document.getElementById('correct1').checked) {
+        score++;
+      }
+      if (document.getElementById('correct2').checked) {
+        score++;
+      }
+      if (document.getElementById('correct3').checked) {
+        score++;
+      }
+      if (document.getElementById('correct4').checked) {
+        score++;
+      }
+      if (document.getElementById('correct5').checked) {
+        score++;
+      }
+      if (document.getElementById('correct6').checked) {
+        score++;
+      }
+      if (document.getElementById('correct7').checked) {
+        score++;
+      }
+      if (document.getElementById('correct8').checked) {
+        score++;
+      }
+      if (document.getElementById('correct9').checked) {
+        score++;
+      }
+      if (document.getElementById('correct10').checked) {
+        score++;
+      }
+
+      //var input = document.getElementById("btn");
+      alert("Your score is:" + score);
+      var ele = document.getElementById("gradepercentage");
+      //var score = "";
+      // if (ele) {
+      //     score = ele.value;
+      // }
+      //var ele=document.getElementById("gradepercentage");
+      ele.value = score;
+
+
+    }
+
+  </script>
+  <script src="./assets/js/output.js"></script>
+</body>
+</html>
