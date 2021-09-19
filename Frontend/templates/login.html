@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/login.css" />
+  </head>
+  <body>
+     
+
+ <div id="Registration">
+<h1>Registration!!!</h1>
+<input type = "email" placeholder = "Email" id= "email"/>
+<input type = "password" placeholder = "password" id= "password"/>
+<input type="text" name="name" id="name" placeholder="Enter Your Name"><br><br>
+<button onclick="signUp()" id="signUp"> SignUp</button>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<button onclick="signIn()" id="signIn"> SignIn</button>
+
+ </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script>
+  // Your web app's Firebase configuration
+   var firebaseConfig = {
+    apiKey: "AIzaSyCrZ_tebJ-klhMYTZI6RjLgJpXWV8ZNTuE",
+    authDomain: "raksha-81610.firebaseapp.com",
+    projectId: "raksha-81610",
+    storageBucket: "raksha-81610.appspot.com",
+    messagingSenderId: "1059115738524",
+    appId: "1:1059115738524:web:0ca4111c04e990bd9a9459"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const database = firebase.database()
+  function signUp(){
+         
+    email = document.getElementById('email').value
+  password = document.getElementById('password').value
+  name = document.getElementById('name').value
+
+  if (validate_email(email) == false || validate_password(password) == false) {
+    alert('Email or Password is Outta Line!!')
+    return
+    // Don't continue running the code
+  }
+  if (validate_field(name) == false) {
+    alert('One or More Extra Fields is Outta Line!!')
+    return
+  }
+    
+    auth.createUserWithEmailAndPassword(email, password)
+  .then(function() {
+    // Declare user variable
+    var user = auth.currentUser
+
+    // Add this user to Firebase Database
+    var database_ref = database.ref()
+
+    // Create User data
+    var user_data = {
+      email : email,
+      name : name,
+      last_login : Date.now()
+    }
+
+    // Push to Firebase Database
+    database_ref.child('users/' + user.uid).set(user_data)
+
+    // DOne
+    alert('User Created!!')
+     window.location.replace("index.html");
+  })
+  .catch(function(error) {
+    // Firebase will use this to alert of its errors
+    var error_code = error.code
+    var error_message = error.message
+
+    alert(error_message)
+  })
+}
+
+
+  //  promise.catch(e => alert(e.message));
+   // 
+   // alert('User Register successfully');
+  
+  
+  function signIn(){
+    
+    email = document.getElementById('email').value
+  password = document.getElementById('password').value
+if (validate_email(email) == false || validate_password(password) == false) {
+    alert('Email or Password is Outta Line!!')
+    return
+    // Don't continue running the code
+  }
+
+
+  auth.signInWithEmailAndPassword(email, password)
+  .then(function() {
+    // Declare user variable
+    var user = auth.currentUser
+
+    // Add this user to Firebase Database
+    var database_ref = database.ref()
+
+    // Create User data
+    var user_data = {
+      last_login : Date.now()
+    }
+
+    // Push to Firebase Database
+    database_ref.child('users/' + user.uid).update(user_data)
+
+    // DOne
+    alert('User Logged In!!')
+    window.location.replace("index.html");
+  })
+  .catch(function(error) {
+    // Firebase will use this to alert of its errors
+    var error_code = error.code
+    var error_message = error.message
+
+    alert(error_message)
+  })
+    
+
+  }
+  
+  // Validate Functions
+function validate_email(email) {
+  expression = /^[^@]+@\w+(\.\w+)+\w$/
+  if (expression.test(email) == true) {
+    // Email is good
+    return true
+  } else {
+    // Email is not good
+    return false
+  }
+}
+
+function validate_password(password) {
+  // Firebase only accepts lengths greater than 6
+  if (password < 6) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function validate_field(field) {
+  if (field == null) {
+    return false
+  }
+
+  if (field.length <= 0) {
+    return false
+  } else {
+    return true
+  }
+}
+
+</script>
+          
+
+    <footer>
+      <p>Created with <i class="fa fa-heart"></i> by Techquillas</p>
+    </footer>
+   <!-- <script src="./static/js/login.js" async defer></script>-->
+  </body>
+</html>
+
