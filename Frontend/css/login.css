@@ -17,13 +17,8 @@ body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
-    padding: 0 2rem;
 }
 
-.wave{
-	width: 100%;
-	
-}
 
 .login-content{
 	display: flex;
@@ -246,5 +241,10 @@ a:hover{
 
 .custom-shape-divider-top-1628614548 .shape-fill {
     display:none
+}
+
+.wave{
+display:none
+	
 }
   }
